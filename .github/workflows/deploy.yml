@@ -17,11 +17,11 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       
-     -  name: Install, build, and upload your site
+      - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-            node-version: 22.16.0
-            package-manager: pnpm@latest
+          node-version: 22.16.0
+          package-manager: pnpm@latest
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
