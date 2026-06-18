@@ -1,0 +1,58 @@
+---
+import Welcome from '../components/Welcome.astro';
+import Layout from '../layouts/Layout.astro';
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<div class="container">
+        <h1>Registro de Usuario</h1>
+
+        <div id="mensaje" class="mensaje hidden"></div>
+
+        <!-- Formulario de Registro -->
+        <form id="register-form" class="auth-form">
+            <h2>Registrarse</h2>
+            <input type="email" id="reg-email" placeholder="Usuario (correo electrónico)" required>
+            <input type="password" id="reg-password" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+            <p class="auth-toggle">¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+        </form>
+
+        <!-- Formulario de Inicio de Sesión -->
+        <form id="login-form" class="auth-form hidden">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" id="login-email" placeholder="Usuario (correo electrónico)" required>
+            <input type="password" id="login-password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar sesión</button>
+            <p class="auth-toggle">¿No tienes cuenta? <a href="#" id="show-register">Regístrate</a></p>
+        </form>
+
+        <!-- Sección de Tareas (protegida) -->
+        <div id="tareas-section" class="hidden">
+            <div class="user-info">
+                <span id="user-email"></span>
+                <button id="btn-logout">Cerrar sesión</button>
+            </div>
+
+            <form id="tarea-form">
+                <input type="hidden" id="tarea-id">
+                <input type="text" id="tarea-titulo" placeholder="Escribe una nueva tarea..." required>
+                <button type="submit" id="btn-guardar">Agregar Tarea</button>
+            </form>
+
+            <div class="tareas-container">
+                <h2>Mis Tareas</h2>
+                <ul id="lista-tareas">
+                    <li class="loading">Cargando tareas...</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      import '../scripts/todo-app.ts'
+    </script>
+</Layout>
